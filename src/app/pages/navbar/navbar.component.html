@@ -1,0 +1,21 @@
+<p-menubar [model]="items">
+    <ng-template pTemplate="start">
+        <img src="../../../assets/logo1.png" alt="Image" width="90">
+    </ng-template>
+    <ng-template pTemplate="end">   
+  <button style="margin-left: 10px;" label="Iniciar Sesion" (click)="mostrarDialogo()" pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded p-button-danger"></button>
+     <p-dialog header="Iniciar Sesion" [(visible)]="modalVisible">
+      <form [formGroup]="usuario">
+    <span class="p-float-label m-4">
+      <input id="float-input"  type="text" pInputText formControlName="Nombre">
+      <label for="float-input">Nombre</label>
+    </span>
+    <span class="p-float-label m-4">
+      <input id="float-input"  type="text" pInputText formControlName="Contrasena">
+      <label for="float-input">Contraseña</label>
+    </span>
+  <button label="textoBoton" (click)="verificarUsuario()" pButton pRipple type="button" icon="pi pi-heart" class="p-button-rounded p-button-help"></button>
+  </form>
+  </p-dialog> 
+  </ng-template>   
+</p-menubar>

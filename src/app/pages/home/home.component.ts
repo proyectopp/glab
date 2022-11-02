@@ -7,8 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  
 
+  
+
+  constructor() { 
+
+  }
+  promo:string []=[
+    "../../../assets/carouselglab1.png",
+    "../../../../src/assets/carouselglab1.png",
+    "../../../../src/assets/carouselglab1.png"
+  ]
   ngOnInit(): void {
   }
 
