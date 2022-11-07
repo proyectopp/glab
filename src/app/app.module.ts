@@ -26,6 +26,8 @@ import {CarouselModule} from 'primeng/carousel';
 
 import { AlertService } from './servicios/alert.service';
 import { UsuarioService } from './servicios/usuario.service';
+import { CookieService } from 'ngx-cookie-service';
+import { GuardiaGuard } from './guardia.guard';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,7 @@ import { UsuarioService } from './servicios/usuario.service';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [UsuarioService,AlertService],
+  providers: [UsuarioService,AlertService,CookieService, GuardiaGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

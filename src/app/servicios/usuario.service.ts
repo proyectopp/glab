@@ -2,11 +2,15 @@ import { Injectable } from '@angular/core';
 import { Usuario } from '../models/usuario';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import{map} from 'rxjs/operators'
+import { FormGroup, NgForm } from '@angular/forms';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
+
+  private isLoged = false
 
   private usuarioCollection:AngularFirestoreCollection <Usuario>
 
@@ -32,6 +36,27 @@ export class UsuarioService {
           reject(error);
         }
       })
+    }
+
+    login(form:FormGroup,usuariosCol:Usuario[]){
+      let texto = "No Inició"
+      if(form.valid){
+        usuariosCol.forEach(
+          usuario=>{
+            if(form.value.nombre === usuario.nombre){
+              if(form.value.contrasena === usuario.contrasena){
+                this.isLoged = true
+                texto = "Inició Sesión"
+              }
+            }
+          }
+        )
+        alert(texto)
+      }
+    }
+  
+    estaLogueado(){
+      return this.isLoged
     }
 
 
