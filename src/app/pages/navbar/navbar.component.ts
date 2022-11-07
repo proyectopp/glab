@@ -11,23 +11,25 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class NavbarComponent implements OnInit {
   
-  usuario = new FormGroup({
-    Nombre: new FormControl('',Validators.required),
-    Contrasena: new FormControl('',Validators.required)
+  usuario = new FormGroup ({
+    Nombre: new FormControl ('',Validators.required),
+    Contrasena: new FormControl ('',Validators.required)
   })
-
-  usuarioSeleccionado!: Usuario;
   
-  collecionDeUsuarios!: Usuario[];
+  usuarioSeleccionado:Usuario;
+
+  collecionDeUsuario: Usuario[];
 
   modalVisible:boolean=false;
  
 
   constructor(private servicioUsuarios:UsuarioService) { }
+
   usuarios=this.servicioUsuarios.obtenerUsuarios();
   items: MenuItem[]=[];
   adminVisible=false;
-  textoBoton!: string;
+  textoBoton: string;
+
   ngOnInit(): void {
     this.items = [
       {
@@ -67,13 +69,13 @@ export class NavbarComponent implements OnInit {
            visible:this.adminVisible
          }
      ];
-     this.servicioUsuarios.obtenerUsuarios().subscribe(usuario=>this.collecionDeUsuarios=usuario)
+     this.servicioUsuarios.obtenerUsuarios().subscribe(usuario=>this.collecionDeUsuario=usuario)
 }
 
 verificarUsuario(){
   this.usuarios.forEach(usuario =>{
     if(this.usuario.valid){
-    if(usuario==this.collecionDeUsuarios){
+    if(usuario==this.collecionDeUsuario){
       alert("Iniciaste sesion correctamente")
     }
     else{
@@ -92,4 +94,10 @@ verificarUsuario(){
   this.adminVisible=true
   this.ngOnInit()
 }
-  }
+
+iniciaSesion(){
+  this.servicioUsuarios.login(this.usuario,this.collecionDeUsuario)
+}
+
+
+}
