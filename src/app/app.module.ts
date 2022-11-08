@@ -22,7 +22,11 @@ import { InputTextModule } from "primeng/inputtext";
 import {MenubarModule} from 'primeng/menubar'; //navbar
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
+import {RatingModule} from 'primeng/rating';
+
 import {CarouselModule} from 'primeng/carousel';
+
+import { TableModule } from 'primeng/table';
 
 import { AlertService } from './servicios/alert.service';
 import { UsuarioService } from './servicios/usuario.service';
@@ -46,10 +50,12 @@ import { GuardiaGuard } from './guardia.guard';
     DialogModule,
     CarouselModule,
     ButtonModule,
+    RatingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     InputTextModule,
     AppRoutingModule,
+    TableModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [UsuarioService,AlertService,CookieService, GuardiaGuard],

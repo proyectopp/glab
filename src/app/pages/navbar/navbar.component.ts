@@ -97,6 +97,7 @@ verificarUsuario(){
 
 iniciaSesion(){
   this.servicioUsuarios.login(this.usuario,this.collecionDeUsuario)
+  this.modalVisible=false
 }
 
 

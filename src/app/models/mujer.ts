@@ -3,5 +3,6 @@ export interface Mujer {
     idProducto:string,
     Precio: string,
     Color: string,
-    Img: string
+    Img: string,
+    Cantidad:string
 }

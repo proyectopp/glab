@@ -38,15 +38,15 @@ export class UsuarioService {
       })
     }
 
-    login(form:FormGroup,usuariosCol:Usuario[]){
+    login(form:FormGroup,collecionDeUsuario:Usuario[]){
       let texto = "No Inició"
       if(form.valid){
-        usuariosCol.forEach(
+        collecionDeUsuario.forEach(
           usuario=>{
-            if(form.value.nombre === usuario.nombre){
-              if(form.value.contrasena === usuario.contrasena){
+            if(form.value.Nombre === usuario.Nombre){
+              if(form.value.Contrasena === usuario.Contrasena){
                 this.isLoged = true
-                texto = "Inició Sesión"
+                texto = "Inició Sesión" 
               }
             }
           }

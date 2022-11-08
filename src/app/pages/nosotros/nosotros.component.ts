@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nosotros.component.css']
 })
 export class NosotrosComponent implements OnInit {
+  plantillas:String [] = []
 
   constructor() { }
 
+
   ngOnInit(): void {
+    this.plantillas =[
+
+      
+    ]
   }
+  
 
 }

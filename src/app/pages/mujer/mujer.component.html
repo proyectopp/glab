@@ -1,5 +1,5 @@
 <div style="margin-bottom: 20px;margin-top: 30px;">
-    <p-carousel [value]="collecionMujeres" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+    <p-carousel [value]="collecionMujeres" styleClass="custom-carousel" [numVisible]="4" [numScroll]="4" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
    <ng-template pTemplate="header">
           
       </ng-template>
@@ -7,11 +7,12 @@
           <div class="product-item">
               <div class="product-item-content">
                   <div class="mb-3">
-                      <img [src]="mujer.Img" width="300" height="300" style="border-radius: 20px;"  class="product-image" />
+                      <img [src]="mujer.Img" width="250" height="250" style="border-radius: 20px;"  class="product-image" />
                   </div>
                   <div>
                       <h4 class="mb-1">{{mujer.Producto}}</h4>
                       <h6 class="mt-0 mb-3">{{mujer.Color}}</h6>
+                      <h6 class="mt-0 mb-3">${{mujer.Precio}}</h6>
                       <div class="car-buttons mt-5">
                           <p-button type="button" styleClass="p-button-success p-button-rounded mr-2" icon="pi pi-plus"></p-button>
                           <p-button (click)="showModalDialog()" type="button" styleClass="p-button-rounded p-button-help p-button-outlined" icon="pi pi-shopping-cart"></p-button>

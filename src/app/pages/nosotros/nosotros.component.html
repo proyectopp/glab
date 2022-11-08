@@ -1,1 +1,5 @@
-<p>nosotros works!</p>
+<p-carousel [value]="plantillas"  [numScroll]="2">
+    <ng-template let-plantillas pTemplate="item">
+        <img src="{{plantillas}}" style="width: 100%;height: 80%; margin: 0 1%;" alt="" >
+    </ng-template>
+</p-carousel>

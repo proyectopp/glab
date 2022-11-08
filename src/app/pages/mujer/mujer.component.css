@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&family=Merriweather:ital@1&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+p-button{
+  margin: 2px;
+}
+
+.product-item-content{
+  width: 300px;
+  height: 500px;
+  text-align: center;
+  border-radius: 20px;
+}

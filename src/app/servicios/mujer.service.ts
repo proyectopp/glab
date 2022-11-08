@@ -7,6 +7,9 @@ import{map} from 'rxjs/operators'
   providedIn: 'root'
 })
 export class MujerService {
+  getProductsSmall() {
+    throw new Error('Method not implemented.');
+  }
   private usuarioCollection:AngularFirestoreCollection <Mujer>
 
 

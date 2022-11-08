@@ -6,10 +6,12 @@ import { HombreComponent } from './pages/hombre/hombre.component';
 import { MujerComponent } from './pages/mujer/mujer.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { HomeComponent } from './pages/home/home.component';
+import { GuardiaGuard } from './guardia.guard';
+
 const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:"home",component:HomeComponent},
-  {path:"admin",component:AdminComponent},
+  {path:"admin",component:AdminComponent,canActivate:[GuardiaGuard]},
   {path: "mujer",component:MujerComponent},
   {path: "hombre",component:HombreComponent},
   {path:"accesorios",component:AccesoriosComponent},
