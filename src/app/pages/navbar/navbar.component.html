@@ -3,6 +3,7 @@
         <img src="../../../assets/logo1.png" alt="Image" width="90">
     </ng-template>
     <ng-template pTemplate="end">   
+      <button  style="margin-left: 10px; color: white; background-color: #1C6758;"  pButton type="button" icon="pi pi-sign-out" (click)="cerrarSesionConGoogle()"></button>
   <button style="margin-left: 10px; color: white; background-color: #1C6758;" label="Iniciar Sesion" (click)="mostrarDialogo()" pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded "></button>
      <p-dialog header="Iniciar Sesion" [(visible)]="modalVisible">
       <form [formGroup]="usuario">
@@ -15,7 +16,8 @@
       <label for="float-input">Contraseña</label>
     </span>
   <button label="{{textoBoton}}" style="background-color: #1c6758;" (click)="iniciaSesion()" pButton pRipple type="button"  class="p-button-rounded p-button-help"></button>
-  </form>
+    <button  style="margin-left: 10px; color: white; background-color: #1C6758;"  pButton type="button" icon="pi pi-google" (click)="iniciarSesionConGoogle()"></button>
+</form>
   </p-dialog> 
   </ng-template>   
 </p-menubar>

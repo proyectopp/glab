@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Accesorios } from 'src/app/models/accesorios';
-import { AccesoriosService } from 'src/app/servicios/accesorios.service';
+import { AnillosService } from 'src/app/servicios/anillos.service';
+import { Anillos } from 'src/app/models/anillos';
+import { CollaresService } from 'src/app/servicios/collares.service';
+import { ArosService } from 'src/app/servicios/aros.service';
+import { Collares } from 'src/app/models/collares';
+import { Aros } from 'src/app/models/aros';
 @Component({
   selector: 'app-accesorios',
   templateUrl: './accesorios.component.html',
@@ -8,9 +12,11 @@ import { AccesoriosService } from 'src/app/servicios/accesorios.service';
 })
 export class AccesoriosComponent implements OnInit {
   responsiveOptions;
-  collecionAccesorios: Accesorios[] = [];
+  collecionAnillos: Anillos[] = [];
+  collecionAros: Aros[];
+  collecionCollares:Collares[];
   displayModal: boolean = false;
-  constructor(private servicioAccesorios:AccesoriosService) {
+  constructor(private servicioAnillos:AnillosService, private servicioAros:ArosService, private servicioCollares:CollaresService) {
     this.responsiveOptions = [
       {
           breakpoint: '1024px',
@@ -31,9 +37,9 @@ export class AccesoriosComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.servicioAccesorios.obtenerAccesorios().subscribe(accesorios=>{this.collecionAccesorios=accesorios
-    console.log(accesorios)
-    })
+    this.servicioAnillos.obtenerAnillos().subscribe(anillos=>this.collecionAnillos=anillos)
+    this.servicioAros.obtenerAros().subscribe(aros=>this.collecionAros=aros)
+    this.servicioCollares.obtenerCollares().subscribe(collares=>this.collecionCollares=collares)
   }
   showModalDialog() { 
     this.displayModal = true;

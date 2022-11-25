@@ -1,4 +1,4 @@
-export interface Mujer {
+export interface RemeraH {
     Producto: string,
     idProducto:string,
     Precio: string,

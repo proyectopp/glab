@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Mujer } from 'src/app/models/mujer';
-import { MujerService } from 'src/app/servicios/mujer.service';
+import { BuzosService } from 'src/app/servicios/buzos.service';
+import { PantalonmService } from 'src/app/servicios/pantalonm.service';
+import { RemeramService } from 'src/app/servicios/remeram.service';
+import { BuzoM } from 'src/app/models/buzom';
+import { RemeraM } from 'src/app/models/remeram';
+import { PantalonM } from 'src/app/models/pantalonm';
 @Component({
   selector: 'app-mujer',
   templateUrl: './mujer.component.html',
@@ -8,10 +12,12 @@ import { MujerService } from 'src/app/servicios/mujer.service';
 })
 export class MujerComponent implements OnInit {
   responsiveOptions;
-  collecionMujeres: Mujer[] = [];
+  remeras: RemeraM[] = [];
+  pantalones:PantalonM[];
+  buzos:BuzoM[];
   displayModal: boolean = false;
 
-  constructor(private servicioMujer:MujerService) { 
+  constructor(private remeraM:RemeramService, private buzoM:BuzosService,private pantalonM:PantalonmService) { 
     this.responsiveOptions = [
       {
           breakpoint: '1024px',
@@ -31,8 +37,9 @@ export class MujerComponent implements OnInit {
   ];}
 
   ngOnInit(): void {
-    this.servicioMujer.obtenerProductoM().subscribe(mujer=>this.collecionMujeres=mujer)
-
+    this.remeraM.obtenerRemeraM().subscribe(remeram=>this.remeras=remeram)
+    this.buzoM.obtenerBuzoM().subscribe(buzom=>this.buzos=buzom)
+    this.pantalonM.obtenerPantalonM().subscribe(pantalonm=>this.pantalones=pantalonm)
   }
   showModalDialog() { 
     this.displayModal = true;

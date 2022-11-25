@@ -1,7 +1,8 @@
-export interface Hombre {
+export interface Conjuntos {
     Producto: string,
     idProducto:string,
     Precio: string,
     Color: string,
-    Img: string
+    Img: string,
+    Cantidad:string
 }

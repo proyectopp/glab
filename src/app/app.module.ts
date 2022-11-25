@@ -25,13 +25,16 @@ import { ButtonModule } from 'primeng/button';
 import {RatingModule} from 'primeng/rating';
 
 import {CarouselModule} from 'primeng/carousel';
-
+import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 
 import { AlertService } from './servicios/alert.service';
 import { UsuarioService } from './servicios/usuario.service';
 import { CookieService } from 'ngx-cookie-service';
 import { GuardiaGuard } from './guardia.guard';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { ConjuntosComponent } from './pages/conjuntos/conjuntos.component';
+import { FooterComponent } from './pages/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -42,13 +45,16 @@ import { GuardiaGuard } from './guardia.guard';
     MujerComponent,
     HombreComponent,
     AccesoriosComponent,
-    NosotrosComponent
+    NosotrosComponent,
+    ConjuntosComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     MenubarModule,
     DialogModule,
     CarouselModule,
+    CardModule,
     ButtonModule,
     RatingModule,
     ReactiveFormsModule,
@@ -56,6 +62,7 @@ import { GuardiaGuard } from './guardia.guard';
     InputTextModule,
     AppRoutingModule,
     TableModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [UsuarioService,AlertService,CookieService, GuardiaGuard],

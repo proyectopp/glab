@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Accesorios } from '../models/accesorios';
+import { Collares } from '../models/collares';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 
 import{map} from 'rxjs/operators'
@@ -7,17 +7,17 @@ import{map} from 'rxjs/operators'
 @Injectable({
   providedIn: 'root'
 })
-export class AccesoriosService {
-  private usuarioCollection:AngularFirestoreCollection <Accesorios>
+export class CollaresService {
+
+  private usuarioCollection:AngularFirestoreCollection <Collares>
 
 
   constructor(private db: AngularFirestore) {
-    this.usuarioCollection= db.collection('accesorios')
+    this.usuarioCollection= db.collection('Collares')
   
    }
-   obtenerAccesorios(){
+   obtenerCollares(){
     return this.usuarioCollection.snapshotChanges().pipe(map(action=>action.map(a=>a.payload.doc.data())))
     
   }
-
 }

@@ -1,0 +1,35 @@
+<div class="bannerpromo">
+   
+</div>
+<div style="margin-bottom: 20px;margin-top: 30px;">
+    <p-carousel [value]="collecionConjuntos" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+   <ng-template pTemplate="header">
+          
+      </ng-template>
+      <ng-template let-conjuntos pTemplate="item">
+          <div class="product-item">
+              <div class="product-item-content">
+                  <div class="mb-3">
+                      <img [src]="conjuntos.Img" width="250" height="250" style="border-radius: 20px;"  class="product-image" />
+                  </div>
+                  <div>
+                      <h4 class="mb-1">{{conjuntos.Producto}}</h4>
+                      <h6 class="mt-0 mb-3">{{conjuntos.Color}}</h6>
+                      <h6 class="mt-0 mb-3">${{conjuntos.Precio}}</h6>
+                      <div class="car-buttons mt-5">
+                          <p-button type="button" styleClass="p-button-success p-button-rounded mr-2" icon="pi pi-plus"></p-button>
+                          <p-button (click)="showModalDialog()" type="button" styleClass="p-button-rounded p-button-help p-button-outlined" icon="pi pi-shopping-cart"></p-button>
+                      <p-dialog header="Header" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+                        [draggable]="false" [resizable]="false">
+                      <p class="m-0">{{conjuntos.Precio}}</p>
+                      <ng-template pTemplate="footer">
+                  <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+                 </ng-template>
+          </p-dialog>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </ng-template>
+  </p-carousel>
+  </div>

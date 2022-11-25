@@ -3,6 +3,9 @@ import {MenuItem} from 'primeng/api';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
+import { LoginGoogleService } from 'src/app/servicios/login-google.service';
+
+import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-navbar',
@@ -21,9 +24,12 @@ export class NavbarComponent implements OnInit {
   collecionDeUsuario: Usuario[];
 
   modalVisible:boolean=false;
+
+  logueado = false
+
  
 
-  constructor(private servicioUsuarios:UsuarioService) { }
+  constructor(private router:Router, private login:UsuarioService,private google:LoginGoogleService, private servicioUsuarios:UsuarioService) { }
 
   usuarios=this.servicioUsuarios.obtenerUsuarios();
   items: MenuItem[]=[];
@@ -31,6 +37,8 @@ export class NavbarComponent implements OnInit {
   textoBoton: string;
 
   ngOnInit(): void {
+    this.logueado = this.login.estaLogueado()
+    this.google.getUser()
     this.items = [
       {
         label:'Inicio',
@@ -39,21 +47,26 @@ export class NavbarComponent implements OnInit {
         
       {
       label:'Tienda',
-    icon:'pi pi-book',
+    icon:'pi pi-shopping-bag',
     items:[{
        label:'Mujer',
-         icon:'pi pi-apple',
+         icon:'pi pi-tag',
          routerLink:'mujer'
             },
           {
           label:'Hombre',
-               icon:'pi pi-apple',
+               icon:'pi pi-tag',
                routerLink:'hombre'
              },
              {
               label:'Accesorios',
-             icon:'pi pi-apple',
+             icon:'pi pi-tag',
              routerLink:'accesorios'
+            },
+            {
+              label:'Conjuntos',
+              icon:'pi pi-tag',
+              routerLink:'conjuntos'
             }
            ]
          },
@@ -98,7 +111,23 @@ verificarUsuario(){
 iniciaSesion(){
   this.servicioUsuarios.login(this.usuario,this.collecionDeUsuario)
   this.modalVisible=false
+  this.router.navigateByUrl("Admin")
 }
 
+iniciarSesionConGoogle(){
+  this.google.loginWithGoogle()
+  this.ngOnInit()
+}
+
+cerrarSesionConGoogle(){
+  this.google.logOut()
+}
+
+
+CerrarSesion(){
+  this.login.logOut()
+  this.router.navigateByUrl("/")
+  this.ngOnInit()
+}
 
 }

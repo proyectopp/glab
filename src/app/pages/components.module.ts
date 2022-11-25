@@ -7,6 +7,8 @@ import { HombreComponent } from './hombre/hombre.component';
 import { AccesoriosComponent } from './accesorios/accesorios.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { ConjuntosComponent } from './conjuntos/conjuntos.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     HombreComponent,
     AccesoriosComponent,
     NavbarComponent,
-    NosotrosComponent
+    NosotrosComponent,
+    FooterComponent,
+    ConjuntosComponent
   ],
   imports: [
     CommonModule

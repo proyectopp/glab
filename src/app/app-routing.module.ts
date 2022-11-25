@@ -7,6 +7,7 @@ import { MujerComponent } from './pages/mujer/mujer.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { HomeComponent } from './pages/home/home.component';
 import { GuardiaGuard } from './guardia.guard';
+import { ConjuntosComponent } from './pages/conjuntos/conjuntos.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:"admin",component:AdminComponent,canActivate:[GuardiaGuard]},
   {path: "mujer",component:MujerComponent},
   {path: "hombre",component:HombreComponent},
+  {path:"conjuntos",component:ConjuntosComponent},
   {path:"accesorios",component:AccesoriosComponent},
   {path:"nosotros",component:NosotrosComponent}
 ];

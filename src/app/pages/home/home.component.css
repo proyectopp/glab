@@ -68,7 +68,7 @@ p-button{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
-  width: 25%;
+  width: 20%;
   margin: 1%;
   -webkit-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
@@ -93,6 +93,7 @@ p-button{
 }
 
 .contenedor-card-item img {
+
   max-width: 100%;
   position: relative;
   top: 0;
@@ -165,7 +166,7 @@ p-button{
 .explore{
   width: 100%;
   height: 700px;
-  background-image: url(../../../assets/carouselglab3.png);
+  background-image: url(../../../assets/publicidad.png);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
