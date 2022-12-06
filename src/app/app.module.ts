@@ -27,6 +27,7 @@ import {RatingModule} from 'primeng/rating';
 import {CarouselModule} from 'primeng/carousel';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
+import {StyleClassModule} from 'primeng/styleclass';
 
 import { AlertService } from './servicios/alert.service';
 import { UsuarioService } from './servicios/usuario.service';
@@ -61,6 +62,7 @@ import { FooterComponent } from './pages/footer/footer.component';
     BrowserAnimationsModule,
     InputTextModule,
     AppRoutingModule,
+    StyleClassModule,
     TableModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)

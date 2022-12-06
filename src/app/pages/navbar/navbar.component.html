@@ -1,4 +1,4 @@
-<p-menubar [model]="items" >
+ <p-menubar [model]="items" >
     <ng-template pTemplate="start">
         <img src="../../../assets/logo1.png" alt="Image" width="90">
     </ng-template>
@@ -15,9 +15,9 @@
       <input id="float-input"  type="text" pInputText formControlName="Contrasena">
       <label for="float-input">Contraseña</label>
     </span>
-  <button label="{{textoBoton}}" style="background-color: #1c6758;" (click)="iniciaSesion()" pButton pRipple type="button"  class="p-button-rounded p-button-help"></button>
+  <!-- <button label="{{textoBoton}}" style="background-color: #1c6758;" (click)="iniciaSesion()" pButton pRipple type="button"  class="p-button-rounded p-button-help"></button> -->
     <button  style="margin-left: 10px; color: white; background-color: #1C6758;"  pButton type="button" icon="pi pi-google" (click)="iniciarSesionConGoogle()"></button>
 </form>
   </p-dialog> 
   </ng-template>   
-</p-menubar>
+</p-menubar> 

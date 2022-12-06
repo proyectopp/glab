@@ -43,5 +43,6 @@ export class MujerComponent implements OnInit {
   }
   showModalDialog() { 
     this.displayModal = true;
+    alert("Lo agregaste al carrito")
 }
 }

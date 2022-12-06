@@ -8,15 +8,46 @@ import{map} from 'rxjs/operators'
 })
 export class BuzosService {
 
-  private usuarioCollection:AngularFirestoreCollection <BuzoM>
+  private buzoCollection:AngularFirestoreCollection <BuzoM>
 
 
   constructor(private db: AngularFirestore) {
-    this.usuarioCollection= db.collection('buzos')
+    this.buzoCollection= db.collection('buzos')
   
    }
    obtenerBuzoM(){
-    return this.usuarioCollection.snapshotChanges().pipe(map(action=>action.map(a=>a.payload.doc.data())))
+    return this.buzoCollection.snapshotChanges().pipe(map(action=>action.map(a=>a.payload.doc.data())))
     
   }
+  crearBuzoM(nuevobuzom:BuzoM,url:string){
+    return new Promise(async(resolve, reject)=>{
+      try{
+        const id = this.db.createId()
+        nuevobuzom.idProducto = id;
+        const resultado =await this.buzoCollection.doc(id).set(nuevobuzom);
+        resolve(resultado);
+      }
+  
+        catch(error){
+          reject(error);
+        }
+      })
+    }
+  
+    modificarBuzo(idProducto:string,nuevaData:BuzoM){
+     return this.db.collection('buzos').doc(idProducto).update(nuevaData)
+  
+    }
+  
+    eliminarBuzo(idProducto:string){
+      return new Promise((resolve,reject)=>{
+        try {
+          const resp = this.buzoCollection.doc(idProducto).delete()
+          resolve(resp)
+        }
+        catch(error){
+          reject(error)
+        }
+      })
+    }
 }

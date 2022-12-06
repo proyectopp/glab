@@ -16,16 +16,10 @@
                       <h4 class="mb-1">{{buzoh.Producto}}</h4>
                       <h6 class="mt-0 mb-3">{{buzoh.Color}}</h6>
                       <h6 class="mt-0 mb-3">${{buzoh.Precio}}</h6>
-                      <div class="car-buttons mt-5">
-                          <p-button type="button" styleClass="p-button-success p-button-rounded mr-2" icon="pi pi-plus"></p-button>
-                          <p-button (click)="showModalDialog()" type="button" styleClass="p-button-rounded p-button-help p-button-outlined" icon="pi pi-shopping-cart"></p-button>
-                      <p-dialog header="Header" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
-                        [draggable]="false" [resizable]="false">
-                      <p class="m-0">{{buzoh.Precio}}</p>
-                      <ng-template pTemplate="footer">
-                  <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
-                 </ng-template>
-          </p-dialog>
+                      <div style="text-align: center;" >
+                        <button class="button" (click)="showModalDialog()">
+                            <span class="button-content">Agregar al carrito</span>
+                        </button>
                       </div>
                   </div>
               </div>
@@ -48,16 +42,10 @@
                       <h4 class="mb-1">{{remerah.Producto}}</h4>
                       <h6 class="mt-0 mb-3">{{remerah.Color}}</h6>
                       <h6 class="mt-0 mb-3">${{remerah.Precio}}</h6>
-                      <div class="car-buttons mt-5">
-                          <p-button type="button" styleClass="p-button-success p-button-rounded mr-2" icon="pi pi-plus"></p-button>
-                          <p-button (click)="showModalDialog()" type="button" styleClass="p-button-rounded p-button-help p-button-outlined" icon="pi pi-shopping-cart"></p-button>
-                      <p-dialog header="Header" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
-                        [draggable]="false" [resizable]="false">
-                      <p class="m-0">{{remerah.Precio}}</p>
-                      <ng-template pTemplate="footer">
-                  <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
-                 </ng-template>
-          </p-dialog>
+                      <div style="text-align: center;" >
+                        <button class="button" (click)="showModalDialog()">
+                            <span class="button-content">Agregar al carrito</span>
+                        </button>
                       </div>
                   </div>
               </div>
@@ -83,16 +71,10 @@
                       <h4 class="mb-1">{{pantalonh.Producto}}</h4>
                       <h6 class="mt-0 mb-3">{{pantalonh.Color}}</h6>
                       <h6 class="mt-0 mb-3">${{pantalonh.Precio}}</h6>
-                      <div class="car-buttons mt-5">
-                          <p-button type="button" styleClass="p-button-success p-button-rounded mr-2" icon="pi pi-plus"></p-button>
-                          <p-button (click)="showModalDialog()" type="button" styleClass="p-button-rounded p-button-help p-button-outlined" icon="pi pi-shopping-cart"></p-button>
-                      <p-dialog header="Header" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
-                        [draggable]="false" [resizable]="false">
-                      <p class="m-0">{{pantalonh.Precio}}</p>
-                      <ng-template pTemplate="footer">
-                  <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
-                 </ng-template>
-          </p-dialog>
+                      <div style="text-align: center;" >
+                        <button class="button" (click)="showModalDialog()">
+                            <span class="button-content">Agregar al carrito</span>
+                        </button>
                       </div>
                   </div>
               </div>

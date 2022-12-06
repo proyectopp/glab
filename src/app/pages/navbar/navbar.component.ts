@@ -85,21 +85,21 @@ export class NavbarComponent implements OnInit {
      this.servicioUsuarios.obtenerUsuarios().subscribe(usuario=>this.collecionDeUsuario=usuario)
 }
 
-verificarUsuario(){
-  this.usuarios.forEach(usuario =>{
-    if(this.usuario.valid){
-    if(usuario==this.collecionDeUsuario){
-      alert("Iniciaste sesion correctamente")
-    }
-    else{
-      alert("El usuario no esta registrado")
-    }
-    }
-    else{
-      alert("Hubo un problema para iniciar sesion")
-    }
-  })
- }
+// verificarUsuario(){
+//   this.usuarios.forEach(usuario =>{
+//     if(this.usuario.valid){
+//     if(usuario==this.collecionDeUsuario){
+//       alert("Iniciaste sesion correctamente")
+//     }
+//     else{
+//       alert("El usuario no esta registrado")
+//     }
+//     }
+//     else{
+//       alert("Hubo un problema para iniciar sesion")
+//     }
+//   })
+//  }
 
  mostrarDialogo(){
   this.textoBoton ="Iniciar Sesion"
@@ -108,19 +108,24 @@ verificarUsuario(){
   this.ngOnInit()
 }
 
-iniciaSesion(){
-  this.servicioUsuarios.login(this.usuario,this.collecionDeUsuario)
-  this.modalVisible=false
-  this.router.navigateByUrl("Admin")
-}
+// iniciaSesion(){
+//   this.servicioUsuarios.login(this.usuario,this.collecionDeUsuario)
+//   this.modalVisible=false
+//   this.router.navigateByUrl("Admin")
+// }
 
 iniciarSesionConGoogle(){
   this.google.loginWithGoogle()
   this.ngOnInit()
+  this.modalVisible=false
+  this.router.navigateByUrl("admin")
+// }
 }
 
 cerrarSesionConGoogle(){
   this.google.logOut()
+  this.adminVisible=false
+  this.ngOnInit()
 }
 
 

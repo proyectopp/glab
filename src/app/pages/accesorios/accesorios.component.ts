@@ -43,6 +43,7 @@ export class AccesoriosComponent implements OnInit {
   }
   showModalDialog() { 
     this.displayModal = true;
+    alert("Lo agregaste al carrito")
 }
 
 }

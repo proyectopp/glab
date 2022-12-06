@@ -38,6 +38,7 @@ export class ConjuntosComponent implements OnInit {
   }
   showModalDialog() { 
     this.displayModal = true;
+    alert("Lo agregaste al carrito")
 }
 
 }

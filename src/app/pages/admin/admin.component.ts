@@ -43,15 +43,14 @@ export class AdminComponent implements OnInit {
   collecionRemeraH:RemeraH[];
   collecionRemeraM:RemeraM[];
   collecionBuzoH:BuzoH[];
+
   collecionBuzoM:BuzoM[];
-  cols: any[];
-  exportColumns: any[];
-  selectedProducts: BuzoM[];
   mujerSeleccionado:BuzoM;
+  
+  
   textoBoton!:string;
   modalVisible:boolean=false;
   adminVisible=false;
-
   eliminarVisible!:boolean;
 
   constructor(private servicioStorage:StorageService, private servicioConjuntos:ConjuntosService, private remeraM:RemeramService, private remeraH:RemerahService, private buzoM:BuzosService, private buzoH:BuzohService, private pantalonm:PantalonmService, private pantalonh:PantalonhService) { 
@@ -83,115 +82,116 @@ export class AdminComponent implements OnInit {
     this.buzoH.obtenerBuzoH().subscribe(buzoh=>this.collecionBuzoH=buzoh)
     this.buzoM.obtenerBuzoM().subscribe(buzom=>this.collecionBuzoM=buzom)
 }
-// async agregarProductoM(){
-//   if(this.buzomujer.valid){
-//   let nuevoProducto:BuzoM={
-//       Producto:this.buzomujer.value.Producto!,
-//       Color:this.buzomujer.value.Color!,
-//       Cantidad:this.buzomujer.value.Cantidad!,
-//       Img:this.buzomujer.value.Img!,
-//       Precio:this.buzomujer.value.Precio!,
-//        idProducto:""
-// }
-
-//      await this.servicioStorage.subirImagen(this.nombreImagen,this.imagen)
-//     .then(
-//       async res=>{//devuelve la respuesta tipo UploadResult
-//       this.servicioStorage.obtenerUrlImagen(res).//trabajamos con una promesa
-//       then(
-//          async url=>{//nos devuelve la url
-//            await this.buzoM.crearProductoM(nuevoProducto,url)
-//            .then(mujer=>{
-//              alert("El producto fue agregado con exito")
-//             this.modalVisible=false
-//            })
-//           .catch((error)=>{
-// alert("El libro no pudo ser cargado\nError: "+error);
-//         }) 
-//          }
-//        )   
-//      })
-//    }else{
-//      alert("El formulario no esta completo")
-//    }
-//  }
-
-
-//  editarProductoM(){
-//   let datos:Mujer={
-//     Producto:this.mujer.value.Producto!,
-//     Color:this.mujer.value.Color!,
-//     Cantidad:this.mujer.value.Cantidad!,
-//     idProducto:this.mujerSeleccionado.idProducto,
-//      Img:this.mujerSeleccionado.Img,
-//      Precio:this.mujer.value.Precio!
-//    }
-//   this.servicioMujer.modificarProductoM(this.mujerSeleccionado.idProducto,datos).then((mujer)=>{
-//      alert("EL Producto FUE MODIFICADO CON EXITO")
-//   })
-//    .catch((error)=>{
-//      alert("El Producto no pudo ser modificado\nError: "+error);
-//    })
-//  }
-//  mostrarDialogo(){
-//   this.textoBoton ="Agregar Producto"
-//    this.modalVisible=true
-//   this.adminVisible=true
-//   this.ngOnInit()
-// }
-//  mostrarEditar(mujerSeleccionado:Mujer){
-//  this.mujerSeleccionado =mujerSeleccionado
-//  this.textoBoton="Editar Producto"
-//  this.modalVisible=true;
-
-//  this.mujer.setValue({
-//      Producto:mujerSeleccionado.Producto,
-//           Cantidad:mujerSeleccionado.Cantidad,
-//      Color:mujerSeleccionado.Color,
-//      Img:mujerSeleccionado.Img,
-//      Precio:mujerSeleccionado.Precio
-//   })
-// }
-//  cargarDatos(){
-//  if(this.textoBoton==="Agregar Producto"){
-//    this.agregarProductoM()
-//  }
-// else if(this.textoBoton==="Editar Producto"){
-//    this.editarProductoM()
-//  }
-//  this.modalVisible=false
-//  this.mujer.reset()
-//  }
-
-// mostrarEliminar(mujerSeleccionado:Mujer){
-//  this.mujerSeleccionado=mujerSeleccionado
-//  this.eliminarVisible=true
-// }
-
-//  borrarProductoM(){
-//  this.servicioMujer.eliminarProductoM(this.mujerSeleccionado.idProducto).then((resp)=>{
-//   alert("El producto fue eliminado con exito")
-// })
-//  .catch((error)=>{
-//    alert("El producto no pudo ser eliminado\nError: "+error)
-//  })
-//  this.eliminarVisible=false
-//  }
+async agregarProductoM(){
+  if(this.buzomujer.valid){
+  let nuevobuzom:BuzoM={
+  Producto:this.buzomujer.value.Producto!,
+  Color:this.buzomujer.value.Color!,
+  Cantidad:this.buzomujer.value.Cantidad!,
+  Img:this.buzomujer.value.Img!,
+  Precio:this.buzomujer.value.Precio!,
+  idProducto:""
+}
+await this.servicioStorage.subirImagen(this.nombreImagen,this.imagen)
+  .then(
+    async res=>{//devuelve la respuesta tipo UploadResult
+    this.servicioStorage.obtenerUrlImagen(res).//trabajamos con una promesa
+    then(
+      async url=>{//nos devuelve la url
+        await this.buzoM.crearBuzoM(nuevobuzom,url)
+       .then(buzom=>{
+          alert("El producto fue agregado con exito")
+         this.modalVisible=false
+        })
+       .catch((error)=>{
+        alert("El libro no pudo ser cargado\nError: "+error);
+       }) 
+      }
+    )   
+    })
+  }
+  else{
+    alert("El formulario no esta completo")
+  }
+}
 
 
-// cargarImagen(event:any){
-// let archivo =event.target.files[0]
-// let reader = new FileReader()
-//  if(archivo!=undefined){//si mi archivo es diferente a undefined
-//    reader.readAsDataURL(archivo)//lee el archivo y lo convierte en una url
-//   reader.onloadend = () =>{//cuando finaliza la carga
-//      let url = reader.result //me devuelve el resultado (url)
-//     if(url!=null){ //si la url es distinta de nula
-//        this.nombreImagen= archivo.name
-//       this.imagen =url.toString()
-//      }
-//    }
-//  }
-//  }
+ editarBuzoM(){
+  let datos:BuzoM={
+    Producto:this.buzomujer.value.Producto!,
+    Color:this.buzomujer.value.Color!,
+    Cantidad:this.buzomujer.value.Cantidad!,
+    idProducto:this.mujerSeleccionado.idProducto,
+     Img:this.mujerSeleccionado.Img,
+     Precio:this.buzomujer.value.Precio!
+   }
+  this.buzoM.modificarBuzo(this.mujerSeleccionado.idProducto,datos).then((buzom)=>{
+     alert("EL Producto FUE MODIFICADO CON EXITO")
+  })
+   .catch((error)=>{
+     alert("El Producto no pudo ser modificado\nError: "+error);
+   })
+ }
+ mostrarDialogo(){
+  this.textoBoton ="Agregar Producto"
+  this.modalVisible=true
+  this.adminVisible=true
+  this.ngOnInit()
+}
+
+ mostrarEditar(mujerSeleccionado:BuzoM){
+ this.mujerSeleccionado =mujerSeleccionado
+ this.textoBoton="Editar Producto"
+ this.modalVisible=true;
+
+  this.buzomujer.setValue({
+    Producto:mujerSeleccionado.Producto,
+    Cantidad:mujerSeleccionado.Cantidad,
+    Color:mujerSeleccionado.Color,
+    Img:mujerSeleccionado.Img,
+    Precio:mujerSeleccionado.Precio
+  })
+ }
+  cargarDatos(){
+  if(this.textoBoton==="Agregar Producto"){
+   this.agregarProductoM()
+ }
+ else if(this.textoBoton==="Editar Producto"){
+    this.editarBuzoM()
+  }
+  this.modalVisible=false
+  this.buzomujer.reset()
+  }
+
+ mostrarEliminar(mujerSeleccionado:BuzoM){
+  this.mujerSeleccionado=mujerSeleccionado
+    this.eliminarVisible=true
+ }
+
+ borrarProductoM(){
+  this.buzoM.eliminarBuzo(this.mujerSeleccionado.idProducto).then((resp)=>{
+   alert("El producto fue eliminado con exito")
+ })
+  .catch((error)=>{
+    alert("El producto no pudo ser eliminado\nError: "+error)
+    })
+  this.eliminarVisible=false
+  }
+
+
+ cargarImagen(event:any){
+ let archivo =event.target.files[0]
+ let reader = new FileReader()
+  if(archivo!=undefined){//si mi archivo es diferente a undefined
+    reader.readAsDataURL(archivo)//lee el archivo y lo convierte en una url
+   reader.onloadend = () =>{//cuando finaliza la carga
+      let url = reader.result //me devuelve el resultado (url)
+     if(url!=null){ //si la url es distinta de nula
+        this.nombreImagen= archivo.name
+       this.imagen =url.toString()
+      }
+    }
+  }
+  }
 }
 
